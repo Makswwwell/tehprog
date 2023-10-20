@@ -1,3 +1,5 @@
 ﻿  Lab_2.cpp
-D:\Documents\Лабы\Технологии програмирования\Lab_2\Lab_2\Lab_2.cpp(38,31): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-  Lab_2.vcxproj -> D:\Documents\Лабы\Технологии програмирования\Lab_2\x64\Debug\Lab_2.exe
+D:\Documents\Labs\TehProg\Lab_2\Lab_2\Lab_2.cpp(38,31): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+D:\Documents\Labs\TehProg\Lab_2\Lab_2\Lab_2.cpp(78,29): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+D:\Documents\Labs\TehProg\Lab_2\Lab_2\Lab_2.cpp(122,26): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+  Lab_2.vcxproj -> D:\Documents\Labs\TehProg\Lab_2\x64\Debug\Lab_2.exe
