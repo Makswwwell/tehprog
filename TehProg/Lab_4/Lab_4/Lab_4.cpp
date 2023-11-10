@@ -19,8 +19,7 @@ Vector operator - (Vector a) {
 }
 
 int operator ^ (Vector a) {
-    int res(this->x * a.getX() + this->y * a.getY() + this->z * a.getZ());
-    return res;
+    return (this->x * a.getX() + this->y * a.getY() + this->z * a.getZ());
 }
 
 Vector operator * (Vector a) {
@@ -29,14 +28,10 @@ Vector operator * (Vector a) {
 }
 
 bool operator || (Vector a) {
-    if (this->x/a.getX() == this->y/a.getY() && this->y / a.getY() == this->z / a.getZ())
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    const double epsilon = 0;
+    return fabs(this->x * a.getY() - this->y * a.getX()) == epsilon &&
+        fabs(this->y * a.getZ() - this->z * a.getY()) == epsilon &&
+        fabs(this->x * a.getZ() - this->z * a.getX()) == epsilon;
 }
 
 void setX(int x_){
@@ -69,8 +64,11 @@ void show() {
     cout << x << ' ' << y << ' ' << z << ' ' << endl;
 }
 
+private:
+    int x = 0, y = 0, z = 0;
+};
 
-void write_in_file(string name_file) {
+void write_in_file(Vector a, string name_file = "output.txt") {
     ofstream file(name_file, ios::app);
 
     if (!file)
@@ -79,15 +77,38 @@ void write_in_file(string name_file) {
         exit(0);
     }
 
-    file << x << ' ' << y << ' ' << z << '\n';
+    file << a.getX() << ' ' << a.getY() << ' ' << a.getZ() << '\n';
 
     file.close();
 }
 
-private:
-    int x = 0, y = 0, z = 0;
-};
+void write_in_file(int a, string name_file = "output.txt") {
+    ofstream file(name_file, ios::app);
 
+    if (!file)
+    {
+        cout << "Нет такого файла" << endl;
+        exit(0);
+    }
+
+    file << "Скалярное произведение: " << a << '\n';
+
+    file.close();
+}
+
+void write_in_file(bool a, string name_file = "output.txt") {
+    ofstream file(name_file, ios::app);
+
+    if (!file)
+    {
+        cout << "Нет такого файла" << endl;
+        exit(0);
+    }
+
+    file << "Колинеарность векторов: " << (a ? "true" : "false") << '\n';
+
+    file.close();
+}
 
 
 Vector* read_from_file(string name_file) {
@@ -149,20 +170,19 @@ int main()
 {
     Vector* arr = read_from_file("input.txt");
 
-    Vector a(6, 8, 10);
+    Vector a(2, 3, 4);
     Vector b(3, 4, 5);
 
     a.show();
     b.show();
 
-    bool c = a || b;
+    write_in_file(a + b);
+    write_in_file(a - b);
+    write_in_file(a ^ b);
+    write_in_file(a * b);
+    write_in_file(a || b);
 
-    cout << c;
-
-
-
-    //c.show();
-    //c.write_in_file("output.txt");
+    delete[] arr;
 
 }
 
