@@ -2,7 +2,11 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
+<<<<<<< HEAD
       <FullPath>E:\tehprog\TehProg\Lab_2\x64\Debug\Lab_2.exe</FullPath>
+=======
+      <FullPath>D:\Documents\Labs\TehProg\Lab_2\x64\Debug\Lab_2.exe</FullPath>
+>>>>>>> 70343744faa5384d23a09c2d1284d84302513021
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
