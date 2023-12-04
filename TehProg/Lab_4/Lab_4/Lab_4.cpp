@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include <fstream>
 #include <string>
+#include <windows.h>
 
 using namespace std;
 
@@ -168,10 +169,13 @@ Vector* read_from_file(string name_file) {
 
 int main()
 {
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+
     Vector* arr = read_from_file("input.txt");
 
-    Vector a(2, 3, 4);
-    Vector b(3, 4, 5);
+    Vector a = arr[0];
+    Vector b = arr[1];
 
     a.show();
     b.show();
@@ -185,5 +189,3 @@ int main()
     delete[] arr;
 
 }
-
-
