@@ -32,6 +32,7 @@ void copy_no_a_lines() {
 		if (strInput.find('a') == string::npos)
 		{
 			inf2 << strInput + "\n";
+			cout << strInput;
 		}
 	}
 

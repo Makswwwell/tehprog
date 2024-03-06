@@ -1,0 +1,4 @@
+﻿  Lab_6.cpp
+D:\Documents\Labs\TehProg\Lab_6\Lab_6\Lab_6.cpp(8,1): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+D:\Documents\Labs\TehProg\Lab_6\Lab_6\Lab_6.cpp(54): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::vector<std::vector<int,std::allocator<int>>,std::allocator<std::vector<int,std::allocator<int>>>> shift_matrix<int>(const std::vector<std::vector<int,std::allocator<int>>,std::allocator<std::vector<int,std::allocator<int>>>> &)"
+  Lab_6.vcxproj -> D:\Documents\Labs\TehProg\Lab_6\x64\Debug\Lab_6.exe
