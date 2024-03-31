@@ -1,6 +1,8 @@
 ﻿#include <iostream>
 #include <stdexcept>
 
+using namespace std;
+
 template <typename T>
 class ListNode {
 public:
@@ -19,13 +21,6 @@ private:
 public:
     List() : head(nullptr), size(0) {}
 
-    ~List() {
-        while (head != nullptr) {
-            ListNode<T>* temp = head;
-            head = head->next;
-            delete temp;
-        }
-    }
 
     void push_back(T val) {
         ListNode<T>* newNode = new ListNode<T>(val);
@@ -44,7 +39,7 @@ public:
 
     T& operator[](int index) {
         if (index < 0 || index >= size) {
-            throw std::out_of_range("Index out of range");
+            throw out_of_range("Index out of range");
         }
         ListNode<T>* temp = head;
         for (int i = 0; i < index; i++) {
@@ -88,10 +83,10 @@ public:
     void print() const {
         ListNode<T>* temp = head;
         while (temp != nullptr) {
-            std::cout << temp->data << " ";
+            cout << temp->data << " ";
             temp = temp->next;
         }
-        std::cout << std::endl;
+        cout << endl;
     }
 };
 
@@ -107,14 +102,14 @@ int main() {
     list2.push_back(6);
 
     List<int> concatenatedList = list1 + list2;
-    std::cout << "Concatenated List: ";
+    cout << "Concatenated List: ";
     concatenatedList.print();
 
     if (list1 == list2) {
-        std::cout << "Lists are equal\n";
+        cout << "Lists are equal\n";
     }
     else {
-        std::cout << "Lists are not equal\n";
+        cout << "Lists are not equal\n";
     }
 
     return 0;
