@@ -8,37 +8,28 @@ int find_max(const vector<int>& a) {
     return *max_element(a.begin(), a.end());
 }
 
-vector<int> find_index(const vector<int>& a) {
-    vector<int> res;
-    int index = 0;
-    for (int num : a) {
-        if (num < 0 && index % 2 == 0) {
-            res.push_back(index);
-        }
-        ++index;
-    }
-    return res;
-}
-
-vector<int> set_max(int max, const vector<int>& a, const vector<int>& res) {
-    vector<int> modified(a);
-    auto iter = modified.begin();
-    for (int index : res) {
-        iter += index;
-        iter = modified.insert(iter, max);
-        ++iter;
-    }
-    return modified;
-}
-
 int main() {
-    vector<int> input = { 2, -2, 7, 3, -4, 8, -5 };
+    vector<int> input = { 2, 3, -7, 3, -4, 8, -5, 3 };
 
     int max_val = find_max(input);
-    vector<int> indexes = find_index(input);
-    vector<int> result = set_max(max_val, input, indexes);
 
-    for (int num : result) {
+    for (int num : input) {
+        cout << num << ' ';
+    }
+    cout << endl;
+
+    vector<size_t> ind;
+    for (size_t i = 0; i < input.size(); i++) {
+        if (input[i] < 0 && i % 2 == 0) {
+            ind.push_back(i);
+        }
+    }
+
+    for (auto it = ind.rbegin(); it != ind.rend(); ++it) {
+        input.insert(input.begin() + *it + 1, max_val);
+    }
+
+    for (int num : input) {
         cout << num << ' ';
     }
     cout << endl;
