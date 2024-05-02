@@ -1,4 +1,5 @@
 ﻿#include <iostream>
+#include <windows.h>
 #include <stdexcept>
 
 using namespace std;
@@ -91,6 +92,10 @@ public:
 };
 
 int main() {
+
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+
     List<int> list1;
     list1.push_back(1);
     list1.push_back(2);
@@ -102,15 +107,17 @@ int main() {
     list2.push_back(6);
 
     List<int> concatenatedList = list1 + list2;
-    cout << "Concatenated List: ";
+    cout << "Соедененные списки: ";
     concatenatedList.print();
 
     if (list1 == list2) {
-        cout << "Lists are equal\n";
+        cout << "Списки равны\n";
     }
     else {
-        cout << "Lists are not equal\n";
+        cout << "Списки не равны\n";
     }
+
+    cout << list1[0];
 
     return 0;
 }
